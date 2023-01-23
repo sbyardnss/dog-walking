@@ -39,3 +39,29 @@ document.addEventListener(
         }
     }
 )
+
+/*
+// VERSION GIVEN BY INSTRUCTIONS DID NOT WORK BASED ON MY CURRENT CODE
+document.addEventListener(
+    "click",
+    (clickEvent) => {
+        const itemClicked = clickEvent.target
+        if (itemClicked.id.startsWith("petKeeper")) {
+            const [,petId] = itemClicked.id.split("--")
+
+            for (const pet of pets) {
+                if (pet.id === parseInt(petId)) {
+                    let assignedWalker = {name: ""}
+                    for (const walker of walkers) {
+                        if (pet.walkerId === walker.id)
+                        assignedWalker.name = walker.name
+                    }
+                }
+                window.alert(`${pet.name} is currently being walked by ${assignedWalker.name}`)
+
+            }
+
+        }
+    }
+)
+*/

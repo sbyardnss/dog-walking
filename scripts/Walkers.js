@@ -29,18 +29,29 @@ const filterWalkerCitiesByWalker = (walker) => {
     return assignment;
 }
 
-const filterByAssignment = (assignment) => {
-    let assignmentString = "";
-    for (const place of assignment) {
+// const filterByAssignment = (assignment) => {
+//     let assignmentString = "";
+//     for (const place of assignment) {
+//         for (const city of cities) {
+//             if (place.cityId === city.id){
+//                 assignmentString = `${assignmentString}, ${city.name}`
+//             }
+//         }
+//     }
+//     return assignmentString
+// }
+
+const filterByCities = (assignedCities) => {
+    let assignmentString = ""
+    for (const place of assignedCities) {
         for (const city of cities) {
-            if (place.cityId === city.id){
-                assignmentString = `${assignmentString}, ${city.name}`
+            if (place.cityId === city.id) {
+                assignmentString = assignmentString + `${city.name}, `
             }
         }
     }
     return assignmentString
 }
-
 
 
 /*
@@ -84,8 +95,9 @@ document.addEventListener(
             for (const walker of walkers) {
                 if (walker.id === parseInt(walkerId)) {
                     const assignments = filterWalkerCitiesByWalker(walker);
-                    const cities = filterByAssignment(assignments);
-                    window.alert(`${walker.name} services ${cities}`)
+                    // const cities = filterByAssignment(assignments);
+                    const city = filterByCities(assignments)
+                    window.alert(`${walker.name} services ${city}`)
                 }
             }
         }
